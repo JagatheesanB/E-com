@@ -96,21 +96,21 @@ window.addEventListener("load", () => {
     localStorage.setItem("users", JSON.stringify(adminUsers));
   }
 
-  if (location.pathname === "/index.html") {
+  if (location.pathname === "/E-com/index.html") {
     loadHomePage();
   }
 
-  if (location.pathname === "/Aindex.html") {
+  if (location.pathname === "/E-com/Aindex.html") {
     adminHomePage();
   }
 
-  if (location.pathname === "/cart.html") {
+  if (location.pathname === "/E-com/cart.html") {
     loadCartProduct();
   }
    
-  if(location.pathname ===  "/cart.html" ||
-  location.pathname ===  "/index.html" ||
-  location.pathname ===  "/order.html" 
+  if(location.pathname ===  "/E-com/cart.html" ||
+  location.pathname ===  "/E-com/index.html" ||
+  location.pathname ===  "/E-com/order.html" 
    ){
     updateCartCount();
    }
@@ -170,8 +170,8 @@ const signIn = () => {
   } else {
     sessionStorage.setItem("userId", loggedInUser.id);
     if (Remail.value === "admin@gmail.com")
-      location.replace("/Aindex.html");
-    else location.replace("/index.html");
+      location.replace("/E-com/Aindex.html");
+    else location.replace("/E-com/index.html");
   }
 };
 
@@ -182,7 +182,7 @@ const validateEmail = (email) => {
 
 //logout
 const userLogOut = () => {
-  location.replace("/login.html");
+  location.replace("/E-com/login.html");
 };
 
 // random number
@@ -251,7 +251,7 @@ const signUp = () => {
   // });
 
   localStorage.setItem("users", JSON.stringify(users));
-  location.href = "/login.html";
+  location.href = "/E-com/login.html";
 };
 
 const loadHomePage = () => {
@@ -322,7 +322,7 @@ const deleteProduct = (id) => {
 // edit product
 
 const editProduct = (id) => {
-  location.href = `/add_product.html?id=${id}`;
+  location.href = `/E-com/add_product.html?id=${id}`;
 };
 
 const UpdateHandler = () => {
@@ -398,7 +398,7 @@ const addToCart = (id) => {
   // console.log(product)
 
   if (!sessionStorage.getItem("userId")) {
-    location.href = "/login.html";
+    location.href = "/E-com/login.html";
   } else {
     let userId = parseInt(sessionStorage.getItem("userId"));
     // console.log(userId)
@@ -454,7 +454,7 @@ const updateCartCount = () => {
         cartCountRef.innerText = `Cart - ${cartCount}`;
       } else cartCountRef.innerText = `Cart`;
     }
-  } else location.href = "/login.html";
+  } else location.href = "/E-com/login.html";
 };
 
 // loadCartPage
@@ -494,7 +494,7 @@ const loadCartProduct = () => {
       cartTableRef.innerHTML = body;
       totalRef.innerText = `Total - ₹ ${total}`;
     } else {
-      location.href = "/login.html";
+      location.href = "/E-com/login.html";
     }
   }
 };
